@@ -3,7 +3,7 @@ package com.javaex.vo;
 public class PersonVo {
 
 	//필드
-	private int personid;
+	private int personId;
 	private String name;
 	private String hp;
 	private String company;
@@ -15,9 +15,9 @@ public class PersonVo {
 	
 	
 	
-	public PersonVo(int personid, String name, String hp, String company) {
+	public PersonVo(int personId, String name, String hp, String company) {
 		
-		this.personid = personid;
+		this.personId = personId;
 		this.name = name;
 		this.hp = hp;
 		this.company = company;
@@ -34,14 +34,14 @@ public class PersonVo {
 
 	//메소드 gs
 
-	public int getPersonid() {
-		return personid;
+	public int getPersonId() {
+		return personId;
 	}
 
 
 
-	public void setPersonid(int personid) {
-		this.personid = personid;
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
 
 
@@ -84,7 +84,7 @@ public class PersonVo {
 	//메소드 일반
 	@Override
 	public String toString() {
-		return "PersonVo [personid=" + personid + ", name=" + name + ", hp=" + hp + ", company=" + company + "]";
+		return "PersonVo [personId=" + personId + ", name=" + name + ", hp=" + hp + ", company=" + company + "]";
 	}
 	
 	

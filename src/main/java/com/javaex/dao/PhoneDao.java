@@ -163,7 +163,7 @@ public class PhoneDao {
          pstmt.setString(1, personVo.getName()); // ?(물음표) 중 1번째, 순서중요
          pstmt.setString(2, personVo.getHp()); // ?(물음표) 중 2번째, 순서중요
          pstmt.setString(3, personVo.getCompany()); // ?(물음표) 중 3번째, 순서중요
-         pstmt.setInt(4, personVo.getPersonid()); // ?(물음표) 중 4번째, 순서중요
+         pstmt.setInt(4, personVo.getPersonId()); // ?(물음표) 중 4번째, 순서중요
 
          count = pstmt.executeUpdate(); // 쿼리문 실행
 
