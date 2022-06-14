@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +19,9 @@ import com.javaex.vo.PersonVo;
 public class PhoneController {
 
 	// 필드
-
+	@Autowired
+	private PhoneDao phoneDao;        // = new PhoneDao(); 직접하기 않고 주입해줘
+	
 	// 생성자
 
 	// 메소드 gs
@@ -28,7 +31,7 @@ public class PhoneController {
 	@RequestMapping(value="/updateForm", method = {RequestMethod.GET, RequestMethod.POST})
 	public String updateForm(Model model , @RequestParam("no") int no) {
 		
-		PhoneDao phoneDao = new PhoneDao();
+		//PhoneDao phoneDao = new PhoneDao();
 		PersonVo personVo = phoneDao.getPerson(no);
 		
 		// ds데이터 보내기 --> request attribute에 넣는다
@@ -50,7 +53,7 @@ public class PhoneController {
 		System.out.println(num);
 		
 		//Dao로 처리하기 삭제
-		PhoneDao phoneDao = new PhoneDao();
+		//PhoneDao phoneDao = new PhoneDao();
 		int count = phoneDao.personDelete(num);
 		
 		System.out.println(count);
@@ -66,7 +69,7 @@ public class PhoneController {
 		System.out.println(no);
 		
 		//Dao로 처리하기(삭제)
-		PhoneDao phoneDao = new PhoneDao();
+		//PhoneDao phoneDao = new PhoneDao();
 		int count = phoneDao.personDelete(no);
 		
 		System.out.println(count);
@@ -85,13 +88,13 @@ public class PhoneController {
 		System.out.println("list");
 
 		// Dao를 통해서 personList(주소)를 가져온다
-		PhoneDao phoneDao = new PhoneDao();
+		//PhoneDao phoneDao = new PhoneDao();
 		List<PersonVo> personList = phoneDao.getPersonList();
 		System.out.println(personList);
 		// ds데이터 보내기 --> request attribute에 넣는다
 		model.addAttribute("personList", personList);
 
-		return "/WEB-INF/views/list.jsp";
+		return "list";
 	}
 	
 	
@@ -157,7 +160,7 @@ public class PhoneController {
 	public String writeForm() {
 
 		System.out.println("writeForm");
-		return "WEB-INF/views/writeForm.jsp";
+		return "writeForm";
 	}
 
 	// 테스트 메소드
@@ -166,7 +169,7 @@ public class PhoneController {
 
 		System.out.println("PhoneController>test");
 		// 다오
-		return "WEB-INF/views/test.jsp";
+		return "test";
 	}
 
 	// 등록 메소드
