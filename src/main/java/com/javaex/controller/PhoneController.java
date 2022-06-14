@@ -24,6 +24,23 @@ public class PhoneController {
 	// 메소드 gs
 
 	// 메소드 일반
+	//전화번호 수정폼
+	@RequestMapping(value="/updateForm", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateForm(Model model , @RequestParam("no") int no) {
+		
+		PhoneDao phoneDao = new PhoneDao();
+		PersonVo personVo = phoneDao.getPerson(no);
+		
+		// ds데이터 보내기 --> request attribute에 넣는다
+		model.addAttribute("personVo", personVo);
+		
+		
+		return "";
+	}
+	
+	
+	
+	
 	//전화번호 삭제
 	@RequestMapping(value="/delete/{no}/{id}", method= {RequestMethod.GET, RequestMethod.POST})
 	public String delete(@PathVariable("no") int num, @PathVariable("id") String id) {
